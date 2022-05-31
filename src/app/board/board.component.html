@@ -1,0 +1,17 @@
+<span *ngIf="boardDisplay">
+  <h1 *ngIf="!winner">Current Player : {{ Player }}</h1>
+</span>
+<button nbButton outline status="danger" (click)="newGame()">
+  Start new game
+</button>
+<h2 *ngIf="winner">Player {{ winner }} won the game !!</h2>
+<div *ngIf="boardDisplay">
+  <main *ngIf="!winner">
+    <app-box
+      *ngFor="let val of box; let i = index"
+      [value]="val"
+      (click)="makeMove(i)"
+    >
+    </app-box>
+  </main>
+</div>
